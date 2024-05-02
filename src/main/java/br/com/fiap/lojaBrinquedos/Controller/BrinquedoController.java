@@ -17,19 +17,35 @@ public class BrinquedoController {
     private BrinquedoService brinquedoService;
 
     @GetMapping
-    public List<BrinquedoDTO> getAll(){
-        return brinquedoService.getAll();
+    public ResponseEntity<List<BrinquedoDTO>> getAll() {
+        List<BrinquedoDTO> brinquedos = brinquedoService.getAll();
+
+        if (!brinquedos.isEmpty()) {
+            return ResponseEntity.ok(brinquedos);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
     }
+
 
     @GetMapping("/{id}")
-    public BrinquedoDTO getById(@PathVariable Long id){
-        return brinquedoService.getById(id);
+    public ResponseEntity<BrinquedoDTO> getById(@PathVariable Long id){
+        BrinquedoDTO brinquedoExistente = brinquedoService.getById(id);
+        if (brinquedoExistente != null) {
+            return ResponseEntity.ok(brinquedoExistente);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @PostMapping("/criar")
-    public ResponseEntity<BrinquedoDTO> criarBrinquedo(@RequestBody BrinquedoDTO brinquedo){
+    @PostMapping()
+    public ResponseEntity<?> criarBrinquedo(@RequestBody BrinquedoDTO brinquedo){
         BrinquedoDTO novoBrinquedo = brinquedoService.criarBrinquedo(brinquedo);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novoBrinquedo);
+        if( novoBrinquedo != null){
+            return ResponseEntity.status(HttpStatus.CREATED).body(novoBrinquedo);
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Não foi possível realizar a operação");
+        }
     }
 
     @DeleteMapping("/{id}")
