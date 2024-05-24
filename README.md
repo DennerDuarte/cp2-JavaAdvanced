@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gerenciamento de Loja de Brinquedos</title>
-
-</head>
-
-<body>
 
     <h1>Sistema de Gerenciamento de Loja de Brinquedos</h1>
 
@@ -306,6 +296,3 @@
     Resposta: Nenhuma</p>
     <img src="./images/delete.png" alt="Requisição DELETE /brinquedos/{id}" style="width: 100%; max-width: 800px;">
 
-</body>
-
-</html>
