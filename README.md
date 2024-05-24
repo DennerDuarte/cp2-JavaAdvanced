@@ -42,12 +42,13 @@
         <li>GET /brinquedos/{id}: Recupera informações sobre um brinquedo específico.</li>
         <li>POST /brinquedos: Adiciona um novo brinquedo ao sistema.</li>
         <li>PUT /brinquedos/{id}: Atualiza informações sobre um brinquedo específico.</li>
+        <li>PATCH /brinquedos/{id}: Atualiza informações sobre um brinquedo específico.</li>
         <li>DELETE /brinquedos/{id}: Remove um brinquedo do sistema.</li>
     </ul>
     <li>Garanta que os payloads de requisição necessários estejam no formato JSON ao fazer requisições POST, PUT e PATCH.</li>
 </ol>
 
-<h2>Capturas de Tela</h2>
+<h2>Chamadas ao Serviço</h2>
 <h3>Requisição GET /brinquedos</h3>
 <p>Método: GET<br>
 URL: /brinquedos<br>
