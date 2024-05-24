@@ -1,5 +1,4 @@
 
-
     <h1>Sistema de Gerenciamento de Loja de Brinquedos</h1>
 
     <p>Este projeto é um Sistema de Gerenciamento de Loja de Brinquedos desenvolvido utilizando o framework Spring Boot configurado com Maven, e escrito em Java no Eclipse. O objetivo é fornecer funcionalidades básicas de CRUD (Criar, Ler, Atualizar, Deletar) para gerenciar brinquedos para crianças de até 12 anos. O projeto utiliza a biblioteca Lombok para reduzir o código repetitivo e implementa o HATEOAS (Hypermedia as the Engine of Application State) para uma API RESTful com um nível de maturidade 3.</p>
@@ -284,15 +283,9 @@
 
     <img src="./images/update_patch.png" alt="Requisição POST /brinquedos" style="width: 100%; max-width: 800px;">
 
-
-
-
-
-
     <h3>Requisição DELETE /brinquedos/{id}</h3>
     <p>Método: DELETE<br>
     URL: /brinquedos/{id}<br>
     Requisição: Nenhuma<br>
     Resposta: Nenhuma</p>
     <img src="./images/delete.png" alt="Requisição DELETE /brinquedos/{id}" style="width: 100%; max-width: 800px;">
-
