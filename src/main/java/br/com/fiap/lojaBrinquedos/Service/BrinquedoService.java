@@ -16,7 +16,8 @@ public class BrinquedoService {
     @Autowired
     private BrinquedoRepository brinquedoRepository;
 
-    private final BrinquedoFactory factory = new BrinquedoFactory();
+    @Autowired
+    private BrinquedoFactory factory;
 
     public List<BrinquedoDTO> getAll(){
         return factory.toDto((List<Brinquedo>) brinquedoRepository.findAll());
@@ -54,4 +55,36 @@ public class BrinquedoService {
             return false;
         }
     }
+    
+    public BrinquedoDTO updatePartialBrinquedo(Long id, BrinquedoDTO brinquedo) throws Exception {
+        Optional<Brinquedo> brinquedoOptional = brinquedoRepository.findById(id);
+
+        if (!brinquedoOptional.isPresent()) {
+            return null;
+        }
+
+        Brinquedo brinquedoBanco = brinquedoOptional.get();
+
+        if (brinquedo.getNome() != null) {
+            brinquedoBanco.setNome(brinquedo.getNome());
+        }
+        if (brinquedo.getTipo() != null) {
+            brinquedoBanco.setTipo(brinquedo.getTipo());
+        }
+        if (brinquedo.getClassificacao() != null) {
+            brinquedoBanco.setClassificacao(brinquedo.getClassificacao());
+        }
+        if (brinquedo.getTamanho() != null) {
+            brinquedoBanco.setTamanho(brinquedo.getTamanho());
+        }
+        if (brinquedo.getPreco() != null) {
+            brinquedoBanco.setPreco(brinquedo.getPreco());
+        }
+
+        brinquedoBanco = brinquedoRepository.save(brinquedoBanco);
+
+        return factory.toDto(brinquedoBanco);
+    }
+
+
 }

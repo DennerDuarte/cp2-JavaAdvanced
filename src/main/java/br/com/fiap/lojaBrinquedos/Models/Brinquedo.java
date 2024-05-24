@@ -1,13 +1,24 @@
 package br.com.fiap.lojaBrinquedos.Models;
 
-
-import jakarta.persistence.*;
-
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.validation.constraints.Size;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
 @Table(name="TDS_TB_Brinquedos")
 public class Brinquedo {
@@ -24,7 +35,7 @@ public class Brinquedo {
     public String tipo;
 
     @Column(name="classificacao")
-    public int classificacao;
+    public Integer classificacao;
 
     @Column(name="tamanho")
     @Size(min = 1, max = 20, message = "O tamanho precisa ter entre 1 e 20 caracteres")
@@ -33,51 +44,4 @@ public class Brinquedo {
     @Column(name="preco")
     public Double preco;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public int getClassificacao() {
-        return classificacao;
-    }
-
-    public void setClassificacao(int classificacao) {
-        this.classificacao = classificacao;
-    }
-
-    public String getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
-    }
-
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
-    }
 }

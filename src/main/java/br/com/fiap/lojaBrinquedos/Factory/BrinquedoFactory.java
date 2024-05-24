@@ -1,13 +1,16 @@
 package br.com.fiap.lojaBrinquedos.Factory;
 
-import br.com.fiap.lojaBrinquedos.DTO.BrinquedoDTO;
-import br.com.fiap.lojaBrinquedos.Models.Brinquedo;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
+
+import br.com.fiap.lojaBrinquedos.DTO.BrinquedoDTO;
+import br.com.fiap.lojaBrinquedos.Models.Brinquedo;
+
+@Component
 public class BrinquedoFactory {
     public List<BrinquedoDTO> toDto(List<Brinquedo> brinquedos){
         return Optional.ofNullable(brinquedos).map(lista -> lista.stream().map(this::toDto).collect(Collectors.toList())).orElse(Collections.emptyList());
